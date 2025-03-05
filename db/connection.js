@@ -1,4 +1,4 @@
-const { Pool } = require("pg");
+const {Pool} = require("pg");
 
 const ENV = process.env.NODE_ENV || 'development'
 
@@ -8,7 +8,7 @@ const db = new Pool();
 
 if (!process.env.PGDATABASE) {
     throw new Error("No PGDATABASE configured")
-} else { 
+} else {
     console.log(`Connected to ${process.env.PGDATABASE}`)
 }
 

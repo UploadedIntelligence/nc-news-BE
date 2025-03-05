@@ -1,5 +1,8 @@
 \c nc_news
 
+\echo '\n All topics \n'
+SELECT * FROM topics;
+
 \echo '\n All users \n'
 SELECT * FROM users;
 
@@ -10,9 +13,6 @@ WHERE topic = 'coding';
 \echo '\n All comments where votes are less than 0 \n'
 SELECT * FROM comments
 WHERE votes < 0;
-
-\echo '\n All topics \n'
-SELECT * FROM topics;
 
 \echo '\n All articles by user "grumpy19" \n'
 SELECT * FROM articles
