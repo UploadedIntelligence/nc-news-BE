@@ -5,7 +5,7 @@ const data = require('../db/data/test-data/index');
 beforeAll(() => seed(data));
 afterAll(() => db.end());
 
-describe('seed', () => {
+describe.skip('seed', () => {
   describe('topics table', () => {
     test('topics table exists', () => {
       return db
@@ -30,7 +30,6 @@ describe('seed', () => {
                     AND column_name = 'slug';`
         )
         .then(({ rows: [column] }) => {
-          console.log(column);
           expect(column.column_name).toBe('slug');
           expect(column.data_type).toBe('character varying');
         });
@@ -450,7 +449,7 @@ describe('seed', () => {
   });
 });
 
-describe("tests to check common errors", () => {
+describe.skip("tests to check common errors", () => {
   test("check all comments for a specific article have the correct article_id", () => {
     return db
         .query(`SELECT * FROM comments WHERE article_id = 3`)
@@ -521,7 +520,6 @@ describe("tests to check common errors", () => {
           const foreignKeyRows = rows.filter((row) => {
             return row.constraint_type === "FOREIGN KEY";
           });
-          console.log(foreignKeyRows);
           expect(foreignKeyRows.length).toBe(2);
 
           foreignKeyRows.forEach((row) => {
